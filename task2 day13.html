@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 - Day 13</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #5cb1a6, #6dc1b5);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 860px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .section-title {
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 12px;
+      color: #34495e;
+      border-bottom: 2px solid #4caf91;
+      padding-bottom: 4px;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .english {
+      font-size: 16px;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+    .translation {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    input[type="text"] {
+      width: 140px;
+      padding: 6px;
+      margin: 0 3px;
+      font-size: 15px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+    }
+    .check-btn {
+      margin-top: 6px;
+      background: #4caf91;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .feedback {
+      margin-top: 6px;
+      font-weight: bold;
+    }
+    .correct { color: green; }
+    .incorrect { color: red; }
+    .example {
+      font-style: italic;
+      margin-top: 4px;
+      color: #333;
+      line-height: 1.5;
+    }
+    @media (max-width: 600px) {
+      input[type="text"] {
+        width: 100%;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Task 2 - Day 13</h2>
+
+    <div class="section-title">一. 句子填空（Transport）</div>
+
+    <div id="q1" class="question"></div>
+    <div id="q2" class="question"></div>
+    <div id="q3" class="question"></div>
+    <div id="q4" class="question"></div>
+
+    <div class="section-title">二. 短语填空（含例句 + 翻译）</div>
+
+    <div class="question">
+      <div class="english">1. 交通成本：</div>
+      <input type="text" id="p1">
+      <button class="check-btn" onclick="checkPhrase('p1', 'transport cost', 'Rising fuel prices have significantly increased the transport cost for commuters.', '油价上涨显著增加了通勤者的交通成本。')">Check</button>
+      <div class="feedback" id="fb_p1"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">2. 人口扩张：</div>
+      <input type="text" id="p2">
+      <button class="check-btn" onclick="checkPhrase('p2', 'population expansion', 'Rapid population expansion can put enormous pressure on urban infrastructure.', '快速的人口扩张会对城市基础设施造成巨大压力。')">Check</button>
+      <div class="feedback" id="fb_p2"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">3. 步行可达：</div>
+      <input type="text" id="p3">
+      <button class="check-btn" onclick="checkPhrase('p3', 'within walking distance', 'The school is within walking distance of my house.', '学校离我家步行可达。')">Check</button>
+      <div class="feedback" id="fb_p3"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">4. 驾驶执照：</div>
+      <input type="text" id="p4">
+      <button class="check-btn" onclick="checkPhrase('p4', 'driving license', 'You must have a valid driving license to rent a car.', '租车必须持有有效的驾驶执照。')">Check</button>
+      <div class="feedback" id="fb_p4"></div>
+    </div>
+
+    <div class="question">
+      <div class="english">5. 驾照考试：</div>
+      <input type="text" id="p5">
+      <button class="check-btn" onclick="checkPhrase('p5', 'driving test', 'He failed his driving test three times before passing.', '他考了三次驾照才通过。')">Check</button>
+      <div class="feedback" id="fb_p5"></div>
+    </div>
+  </div>
+
+  <script>
+    const sentences = [
+      {
+        id: "s1",
+        text: "To alleviate rush hour traffic jams in a congested downtown area, a subway system should be expanded to provide services to a growing suburb, and a bike-sharing program should be adopted to encourage nonmotorized transportation.",
+        translation: "为缓解市中心高峰期交通拥堵，地铁应扩展至郊区，同时推行共享单车以鼓励非机动车出行。",
+        containerId: "q1"
+      },
+      {
+        id: "s2",
+        text: "The work of transportation planners generally includes evaluating current transportation needs, assessing the effectiveness of existing facilities, and improving those facilities or designing new ones.",
+        translation: "交通规划者的工作包括评估当前需求、分析现有设施效果，以及改进或新建设施。",
+        containerId: "q2"
+      },
+      {
+        id: "s3",
+        text: "Traffic congestion is mainly caused by commuters travelling to and from work and they tend to drive their private cars because public transport is often slow and unreliable. Metro systems and trains are often dirty and crowded, and this makes people feel like “sardines in a can”.",
+        translation: "交通拥堵主要由通勤者开车上下班引起，因为公共交通慢且不可靠，地铁和火车又脏又挤。",
+        containerId: "q3"
+      },
+      {
+        id: "s4",
+        text: "In order to reduce traffic we should change our working habits. To be more specific, more people could work from home or they should be given flexible timetables, and meetings can be held as video conferences. Another solution would be to tax drivers. In London, for example, there is a congestion charge and this helps to raise money for better public transport.",
+        translation: "为了缓解交通，应改变工作习惯，例如远程办公、灵活时间安排、视频会议等，或通过征税筹建更好的公共交通。",
+        containerId: "q4"
+      }
+    ];
+
+    function getRandomIndexes(array, min = 5, max = 7) {
+      const count = Math.min(Math.floor(Math.random() * (max - min + 1)) + min, array.length);
+      const set = new Set();
+      while (set.size < count) {
+        const i = Math.floor(Math.random() * array.length);
+        const word = array[i].replace(/[.,()"]/g, '');
+        if (word.length > 2 && !word.includes("'")) set.add(i);
+      }
+      return Array.from(set);
+    }
+
+    function renderSentence({ id, text, translation, containerId }) {
+      const words = text.split(" ");
+      const blanks = getRandomIndexes(words);
+      const answers = {};
+      const html = words.map((word, i) => {
+        const clean = word.replace(/[.,()"]/g, "");
+        const punct = word.match(/[.,()"]$/) ? word.slice(-1) : "";
+        if (blanks.includes(i)) {
+          const inputId = `${id}_${i}`;
+          answers[inputId] = clean.toLowerCase();
+          return `<input type="text" id="${inputId}" placeholder="...">${punct}`;
+        }
+        return word;
+      }).join(" ");
+      document.getElementById(containerId).innerHTML = `
+        <div class="english">${html}</div>
+        <div class="translation">${translation}</div>
+        <button class="check-btn" onclick='checkSentence("${id}", ${JSON.stringify(answers)})'>Check</button>
+        <div class="feedback" id="fb_${id}"></div>
+      `;
+    }
+
+    function checkSentence(id, answers) {
+      const feedback = document.getElementById("fb_" + id);
+      let correct = true;
+      for (const [inputId, expected] of Object.entries(answers)) {
+        const val = document.getElementById(inputId).value.trim().toLowerCase();
+        if (val !== expected) correct = false;
+      }
+      feedback.innerHTML = correct
+        ? "<span class='correct'>✔ 正确！</span>"
+        : `<span class='incorrect'>✘ 有错误</span> 正确答案：${Object.values(answers).join(" / ")}`;
+    }
+
+    function checkPhrase(id, answer, example, translation) {
+      const feedback = document.getElementById("fb_" + id);
+      const input = document.getElementById(id).value.trim().toLowerCase();
+      const correctAnswer = answer.toLowerCase();
+      if (input === correctAnswer) {
+        feedback.innerHTML = `<span class="correct">✔ 正确！</span><div class="example">雅思例句：${example}</div><div class="example">中文翻译：${translation}</div>`;
+      } else {
+        feedback.innerHTML = `<span class="incorrect">✘ 错误</span> 正确答案：${answer}<div class="example">雅思例句：${example}</div><div class="example">中文翻译：${translation}</div>`;
+      }
+    }
+
+    // 渲染所有句子填空
+    sentences.forEach(renderSentence);
+  </script>
+</body>
+</html>

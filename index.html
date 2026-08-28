@@ -87,12 +87,13 @@
   <div class="container">
     <h2>Task 2 - Day 13</h2>
 
-    <div class="section-title">一. 句子填空（Transport）</div>
+    <div class="section-title">一. 句子填空（Environmental Protection）</div>
 
     <div id="q1" class="question"></div>
     <div id="q2" class="question"></div>
     <div id="q3" class="question"></div>
     <div id="q4" class="question"></div>
+    <div id="q5" class="question"></div>
 
     <div class="section-title">二. 短语填空（含例句 + 翻译）</div>
 
@@ -136,27 +137,33 @@
     const sentences = [
       {
         id: "s1",
-        text: "To alleviate rush hour traffic jams in a congested downtown area, a subway system should be expanded to provide services to a growing suburb, and a bike-sharing program should be adopted to encourage nonmotorized transportation.",
-        translation: "为缓解市中心高峰期交通拥堵，地铁应扩展至郊区，同时推行共享单车以鼓励非机动车出行。",
+        text: "Green spaces are not just decorative; they work as cooling infrastructure in crowded cities. In summer, asphalt roads and concrete buildings absorb heat, making some streets feel like ovens. This can be dangerous for elderly people, children, delivery workers, and construction workers who spend time outdoors. Trees, parks, and shaded sidewalks can lower surface temperatures and reduce heat-related health risks. Therefore, urban greenery improves public health, not just the appearance of a city.",
+        translation: "城市绿地不只是装饰，它们在拥挤城市中起到降温基础设施的作用。夏天，柏油马路和水泥建筑会吸热，让一些街道像烤箱一样。这对老人、儿童、外卖员和建筑工人等经常在户外的人群很危险。树木、公园和有阴凉的人行道可以降低地表温度，减少高温相关健康风险。因此，城市绿化改善的是公共健康，而不仅仅是城市外观。",
         containerId: "q1"
       },
       {
         id: "s2",
-        text: "The work of transportation planners generally includes evaluating current transportation needs, assessing the effectiveness of existing facilities, and improving those facilities or designing new ones.",
-        translation: "交通规划者的工作包括评估当前需求、分析现有设施效果，以及改进或新建设施。",
+        text: "Individual environmental actions may seem small, but they can send powerful social signals. For example, one student bringing a reusable cup will not solve climate change. However, if many students bring their own cups, avoid single-use utensils, and buy second-hand clothes, schools and businesses will notice the change in consumer demand. A school café may start offering discounts for reusable cups, or a shopping mall may organize second-hand exchange events. In this way, individual choices help make sustainable behavior socially normal.",
+        translation: "个人环保行动看似很小，但它们可以发出强有力的社会信号。例如，一个学生自带杯子并不能解决气候变化。但如果很多学生都自带杯子、拒绝一次性餐具、购买二手衣服，学校和商家就会注意到消费者需求的变化。学校咖啡店可能开始给自带杯子的学生折扣，商场也可能组织二手交换活动。通过这种方式，个人选择可以让可持续行为变成社会常态。",
         containerId: "q2"
       },
       {
         id: "s3",
-        text: "Traffic congestion is mainly caused by commuters travelling to and from work and they tend to drive their private cars because public transport is often slow and unreliable. Metro systems and trains are often dirty and crowded, and this makes people feel like “sardines in a can”.",
-        translation: "交通拥堵主要由通勤者开车上下班引起，因为公共交通慢且不可靠，地铁和火车又脏又挤。",
+        text: "Corporate environmental responsibility should focus on supply chains, not just public slogans. For example, a clothing brand may advertise itself as eco-friendly, but its suppliers might still use polluting dyes, waste large amounts of water, or rely on excessive packaging. A more practical solution is to require companies to set measurable reduction targets and hold suppliers accountable for meeting environmental standards. This prevents greenwashing and reduces emissions across the entire production process.",
+        translation: "企业环保责任应该关注供应链，而不是只停留在公开口号上。例如，一个服装品牌可能在广告中声称自己环保，但它的供应商仍然可能使用高污染染料、浪费大量水资源或依赖过度包装。更实际的解决办法是要求企业设定可衡量的减排目标，并让供应商承担达到环保标准的责任。这可以防止绿色洗白，并减少整个生产过程中的排放。",
         containerId: "q3"
       },
       {
         id: "s4",
-        text: "In order to reduce traffic we should change our working habits. To be more specific, more people could work from home or they should be given flexible timetables, and meetings can be held as video conferences. Another solution would be to tax drivers. In London, for example, there is a congestion charge and this helps to raise money for better public transport.",
-        translation: "为了缓解交通，应改变工作习惯，例如远程办公、灵活时间安排、视频会议等，或通过征税筹建更好的公共交通。",
+        text: "Environmental education should move beyond recycling and teach pre-consumption thinking. Many students believe they are being environmentally responsible as long as they put plastic bottles into the recycling bin. However, the better question is whether the bottle needed to be purchased in the first place. For example, if a student buys bottled water every day, even recycling those bottles still creates packaging, transportation, and processing costs. Carrying a reusable water bottle reduces waste before it is created.",
+        translation: "环保教育应该超越单纯回收，教会学生消费前思考。很多学生认为只要把塑料瓶丢进回收桶，就是环保。然而，更好的问题是：这个瓶子一开始是否有必要购买？例如，如果一个学生每天买瓶装水，即使这些瓶子都被回收了，仍然会产生包装、运输和处理成本。携带可重复使用的水瓶，则是在垃圾产生之前就减少浪费。",
         containerId: "q4"
+      },
+      {
+        id: "s5",
+        text: "Environmental protection should also include reducing food waste. In school cafeterias, students often take more food than they can finish, and large amounts of leftovers are thrown away every day. This waste has a hidden environmental cost because producing food requires water, land, transportation, and energy. Schools can respond in practical ways, such as offering half-portion options or donating unopened food to local food banks. These small changes make environmental action part of daily life.",
+        translation: "环境保护也应该包括减少食物浪费。在学校食堂，学生经常拿超过自己能吃完的食物，每天都有大量剩饭被倒掉。这种浪费有隐藏的环境成本，因为生产食物需要水、土地、运输和能源。学校可以采取实际措施，比如提供半份选择，或者把未开封的食物捐给当地食物银行。这些小改变能让环保行动融入日常生活。",
+        containerId: "q5"
       }
     ];
 
